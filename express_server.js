@@ -3,7 +3,13 @@ const app = express();
 const PORT = 8080; // default port 8080
 const bodyParser = require("body-parser");
 
+// middleware making a log at the terminal
+// const morgan = require('morgan');
+
 app.set('view engine', 'ejs');
+
+// morgan middleware allows to log the request in the terminal
+// app.use(morgan('short'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -31,6 +37,11 @@ app.get('/urls', (req, res) => {
   const templateVars = {urls: urlDatabase};
   res.render('urls_index', templateVars);
 });
+app.post('/urls/:shortURL/delete', (req, res) => {
+  const shortURL = req.params.shortURL;
+  delete urlDatabase[shortURL];
+  res.redirect('/urls')
+})
 app.get("/urls/new", (req, res) => {
   res.render("urls_new");
 });
