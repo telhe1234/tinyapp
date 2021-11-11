@@ -9,15 +9,19 @@
         <a class="nav-item nav-link" href="/urls">My URLs</a>
         <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
       </div>
-      <% if (!username) { %>
-        <form class="form-inline my-2 my-lg-0 ml-auto" method="POST" action="/login">
+      <% if (!user) { %>
+        <!-- <form class="form-inline my-2 my-lg-0 ml-auto" method="POST" action="/login">
           <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" aria-label="Username">
           <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Login</button>
-        </form>
+        </form> -->
+        <div class="ml-auto">
+          <a class="btn btn-link text-white" href="/register" role="button">Register</a>
+          <a class="btn btn-link text-white" href="/login" role="button">Login</a>
+        </div>
       <% } else { %>
         <form class="form-inline my-2 my-lg-0 ml-auto" method="POST" action="/logout">
-          <span class="navbar-text ml-sm-auto ml-auto mr-sm-3">
-            Logged In As: <%= username %> User!
+          <span class="navbar-text ml-sm-auto ml-auto mr-3">
+            Logged In As: <%= user.email %> User!
           </span>
           <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Logout</button>
         </form>
