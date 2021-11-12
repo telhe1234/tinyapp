@@ -15,13 +15,13 @@
           <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Login</button>
         </form> -->
         <div class="ml-auto">
-          <a class="btn btn-link text-white" href="/register" role="button">Register</a>
-          <a class="btn btn-link text-white" href="/login" role="button">Login</a>
+          <a class="navbar-text mr-3" href="/login" role="button">Login</a>
+          <a class="navbar-text" href="/register" role="button">Register</a>
         </div>
       <% } else { %>
         <form class="form-inline my-2 my-lg-0 ml-auto" method="POST" action="/logout">
           <span class="navbar-text ml-sm-auto ml-auto mr-3">
-            Logged In As: <%= user.email %> User!
+            Logged In As: <%= user.email %>!
           </span>
           <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Logout</button>
         </form>
